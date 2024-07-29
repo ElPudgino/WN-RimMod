@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <EntityCodexEntryDef>
+    <defName>PD_Entry</defName>
+    <label>Plague Doctor</label>
+    <description>I shall heal you, curing you of all disease and injury you possess.</description>
+    <uiIconPath>Abnormalities/PlagueDoc/plaguedoc</uiIconPath>
+    <category>Advanced</category>    
+    <orderInCategory>1950</orderInCategory>
+    <provocationIncidents>
+      <li>PlagueDoctorArrival</li>
+    </provocationIncidents>
+  </EntityCodexEntryDef>
+  <LifeStageDef>
+    <defName>plaguedoctor</defName>
+	    <visible>false</visible>
+    <label>default</label>
+  </LifeStageDef>
+  
+
+  <ThingDef ParentName="BasePawn">
+    <defName>PlagueDoctor</defName>
+    <thingClass>WN.PlagueDoctor</thingClass>
+    <label>plaguedoctor</label>
+    <description>Wears a black fedora and a beaked mask. Has huge black wings instead of arms or legs. It is capable of human communication, though it prefers to talk little. It came to this facility by itself, claiming that the world has contracted a dreadful disease only it is able to cure. We could not find anything about this “disease” it refers to.
+It seems to like treating employees when they are injured or sick. It shows satisfaction when helping others, and it seems quite sympathetic and benevolent. Even after a week of observation, we found no aggression, violence, or attempt to escape. Only contributions to the assumption that this Abnormality is eminently “gentle” (12 of our employees used this word to describe this creature) and good for us.
+Employee Alex, who had a serious scar on his forehead from subduing an Abnormality, walked into this Abnormality's chamber with his scar's recovery incomplete. The Abnormality, which normally isn't loquacious, started talking as soon as it saw the employee's scar.
+(Observation Record_1)
+The Abnormality asked: “Why have you not treated that scar?”
+Alex replied: “I had no time, so I just gave it a little bit of first aid.”
+Then the Plague Doctor answered: “I shall heal you, curing you of all disease and injury you possess.”
+Alex came out of the chamber with his scar completely healed.</description>
+    <hiddenWhileUndiscovered>false</hiddenWhileUndiscovered>
+    <statBases>
+      <MoveSpeed>1.0</MoveSpeed>
+      <Flammability>0</Flammability>
+      <ComfyTemperatureMin>-5</ComfyTemperatureMin>
+      <ComfyTemperatureMax>50</ComfyTemperatureMax>
+      <PsychicSensitivity>1.6</PsychicSensitivity>
+      <StaggerDurationFactor>0.8</StaggerDurationFactor>
+      <ToxicResistance>1</ToxicResistance>
+	  <InjuryHealingFactor>2</InjuryHealingFactor>
+    </statBases>
+    <uiIconPath>Abnormalities/PlagueDoc/plaguedoc_south</uiIconPath>
+    <tradeability>None</tradeability>
+    <onlyShowInspectString>true</onlyShowInspectString>
+    <race>
+	  <body>PlagueDoctor</body>
+      <thinkTreeMain>PlagueDoctor</thinkTreeMain>
+	  <thinkTreeConstant>ApostleConstant</thinkTreeConstant>
+      <overrideShouldHaveAbilityTracker>true</overrideShouldHaveAbilityTracker>
+      <baseBodySize>1.4</baseBodySize>
+      <baseHealthScale>2</baseHealthScale>
+      <intelligence>ToolUser</intelligence>
+      <needsRest>false</needsRest>
+      <hasGenders>false</hasGenders>
+      <bloodDef>Filth_CorpseBile</bloodDef>
+      <bleedRateFactor>0.0</bleedRateFactor>
+      <fleshType>EntityFlesh</fleshType>
+      <foodType>None</foodType>
+	   <isImmuneToInfections>true</isImmuneToInfections>
+      <specificMeatDef>Meat_Twisted</specificMeatDef>
+      <leatherDef>Meat_Twisted</leatherDef>
+      <lifeExpectancy>80</lifeExpectancy>
+      <soundMeleeDodge>Pawn_MeleeDodge</soundMeleeDodge>
+      <soundCallIntervalRange>120~240</soundCallIntervalRange>
+      <disableIgniteVerb>true</disableIgniteVerb>
+      <trainability>None</trainability>
+      <lifeStageAges>
+        <li>
+          <def>plaguedoctor</def>
+        </li>
+      </lifeStageAges>
+      <hediffGiverSets>
+        <li>AnomalyEntity</li>
+      </hediffGiverSets>
+    </race>
+    <comps>
+      <li Class="WN.CompProperties_PlagueDoctor"/>
+      <li Class="CompProperties_HoldingPlatformTarget">
+        <baseEscapeIntervalMtbDays>-1</baseEscapeIntervalMtbDays>
+        <canBeExecuted>false</canBeExecuted>
+        <hasAnimation>false</hasAnimation>
+      </li>
+      <li Class="CompProperties_AttachPoints">
+        <points>
+          <li>
+            <offset>(-.5, 0, .5)</offset>
+            <type>PlatformRestraint0</type>
+          </li>
+          <li>
+            <offset>(.5, 0, .5)</offset>
+            <type>PlatformRestraint1</type>
+          </li>
+          <li>
+            <offset>(.5, 0, -.5)</offset>
+            <type>PlatformRestraint2</type>
+          </li>
+          <li>
+            <offset>(-.5, 0, -.5)</offset>
+            <type>PlatformRestraint3</type>
+          </li>
+        </points>
+      </li>
+      <li Class="CompProperties_ProducesBioferrite">
+        <bioferriteDensity>1</bioferriteDensity>
+      </li>
+      <li Class="CompProperties_Studiable">
+        <frequencyTicks>120000</frequencyTicks>
+        <knowledgeCategory>Advanced</knowledgeCategory>
+        <anomalyKnowledge>1</anomalyKnowledge>
+        <minMonolithLevelForStudy>1</minMonolithLevelForStudy>
+        <requiresHoldingPlatform>true</requiresHoldingPlatform>
+      </li>      
+    </comps>
+    <tools>
+      <li>
+        <label>Wing</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <armorPenetration>0.08</armorPenetration>
+        <power>1</power>
+        <cooldownTime>6</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef> 
+  
+   
+  <PawnKindDef>
+    <defName>PlagueDoctor</defName>
+    <label>Plague Doctor</label>
+    <race>PlagueDoctor</race>
+    <overrideDeathOnDownedChance>0</overrideDeathOnDownedChance>
+    <maxGenerationAge>80</maxGenerationAge>
+    <defaultFactionType>OutlanderRefugee</defaultFactionType>
+    <immuneToGameConditionEffects>true</immuneToGameConditionEffects>
+    <overrideDebugActionCategory>Entity</overrideDebugActionCategory>
+      <lifeStages>
+	<li>
+    		<bodyGraphicData>
+      	  	  <texPath>Abnormalities/PlagueDoc/plaguedoc</texPath>
+      	  	  <graphicClass>Graphic_Multi</graphicClass>
+      	  	  <drawSize>3</drawSize>
+    		</bodyGraphicData>
+                <silhouetteGraphicData>
+          	  <texPath>Abnormalities/PlagueDoc/plaguedoc</texPath>
+          	  <graphicClass>Graphic_Multi</graphicClass>
+          	  <drawSize>3</drawSize>
+        	</silhouetteGraphicData>
+         </li>
+       </lifeStages>
+    <combatPower>20</combatPower>
+  </PawnKindDef>
+  
+  
+
+
+     
+</Defs>

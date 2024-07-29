@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <LifeStageDef>
+    <defName>secondapostle</defName>
+	    <visible>false</visible>
+    <label>default</label>
+  </LifeStageDef>
+  
+
+  <ThingDef ParentName="BasePawn">
+    <defName>SecondApostle</defName>
+    <thingClass>WN.Apostle</thingClass>
+    <label>secondapostle</label>
+    <description>Tell us, when shall these things be?</description>
+    <hiddenWhileUndiscovered>false</hiddenWhileUndiscovered>
+    <statBases>
+      <MoveSpeed>2.5</MoveSpeed>
+      <Flammability>0</Flammability>
+      <ComfyTemperatureMin>-200</ComfyTemperatureMin>
+      <ComfyTemperatureMax>600</ComfyTemperatureMax>
+      <PsychicSensitivity>0</PsychicSensitivity>
+      <StaggerDurationFactor>0.01</StaggerDurationFactor>
+      <ToxicResistance>1</ToxicResistance>
+	  <InjuryHealingFactor>6.66</InjuryHealingFactor>
+    </statBases>
+    <uiIconPath>Abnormalities/Apostles/Second/apsecond_south</uiIconPath>
+    <tradeability>None</tradeability>
+    <onlyShowInspectString>true</onlyShowInspectString>
+    <race>
+	  <body>Apostle</body>
+      <thinkTreeMain>Apostle</thinkTreeMain>
+	  <thinkTreeConstant>ApostleConstant</thinkTreeConstant>
+      <overrideShouldHaveAbilityTracker>true</overrideShouldHaveAbilityTracker>
+      <baseBodySize>2.5</baseBodySize>
+      <baseHealthScale>10</baseHealthScale>
+      <intelligence>ToolUser</intelligence>
+      <needsRest>false</needsRest>
+      <hasGenders>false</hasGenders>
+      <bloodDef>Filth_CorpseBile</bloodDef>
+      <bleedRateFactor>0.0</bleedRateFactor>
+      <fleshType>EntityFlesh</fleshType>
+      <foodType>None</foodType>
+	   <isImmuneToInfections>true</isImmuneToInfections>
+      <specificMeatDef>Meat_Twisted</specificMeatDef>
+      <leatherDef>Meat_Twisted</leatherDef>
+      <lifeExpectancy>6666</lifeExpectancy>
+      <soundMeleeDodge>Pawn_MeleeDodge</soundMeleeDodge>
+      <soundCallIntervalRange>120~240</soundCallIntervalRange>
+      <disableIgniteVerb>true</disableIgniteVerb>
+      <trainability>None</trainability>
+      <lifeStageAges>
+        <li>
+          <def>secondapostle</def>
+        </li>
+      </lifeStageAges>
+      <hediffGiverSets>
+        <li>AnomalyEntity</li>
+      </hediffGiverSets>
+    </race>
+    <comps>
+      <li Class="WN.CompProperties_ApostleScythe"/>
+    </comps>
+    <tools>
+      <li>
+        <label>Scythe</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <armorPenetration>0.6</armorPenetration>
+        <power>20</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef> 
+  
+   
+  <PawnKindDef>
+    <defName>SecondApostle</defName>
+    <label>Second Apostle</label>
+    <race>SecondApostle</race>
+	<maxGenerationAge>6666</maxGenerationAge>
+    <defaultFactionType>Entities</defaultFactionType>
+    <immuneToGameConditionEffects>true</immuneToGameConditionEffects>
+    <overrideDebugActionCategory>Entity</overrideDebugActionCategory>
+      <lifeStages>
+	<li>
+    		<bodyGraphicData>
+      	  	  <texPath>Abnormalities/Apostles/Second/apsecond</texPath>
+      	  	  <graphicClass>Graphic_Multi</graphicClass>
+      	  	  <drawSize>6</drawSize>
+    		</bodyGraphicData>
+                <silhouetteGraphicData>
+          	  <texPath>Abnormalities/Apostles/Second/apsecond</texPath>
+          	  <graphicClass>Graphic_Multi</graphicClass>
+          	  <drawSize>6</drawSize>
+        	</silhouetteGraphicData>
+         </li>
+       </lifeStages>
+    <combatPower>500</combatPower>
+  </PawnKindDef>
+  
+  
+
+
+     
+</Defs>

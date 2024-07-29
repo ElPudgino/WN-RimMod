@@ -1,0 +1,352 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <ThinkTreeDef>
+    <defName>Apostle</defName>
+    <thinkRoot Class="ThinkNode_Priority">
+      <subNodes>
+        <!-- Despawned -->
+        <li Class="ThinkNode_Subtree">
+          <treeDef>Despawned</treeDef>
+        </li>
+        
+        <!-- Downed -->
+        <li Class="ThinkNode_Subtree">
+          <treeDef>Downed</treeDef>
+        </li>
+				
+				
+        <li Class="JobGiver_ReactToCloseMeleeThreat">
+          <maxDistance>4.0</maxDistance>
+        </li>
+
+        <!-- Regular fight -->
+        <li Class="JobGiver_AIFightEnemies">
+          <targetAcquireRadius>65</targetAcquireRadius>
+          <targetKeepRadius>72</targetKeepRadius>
+        </li>
+
+        
+        <!-- Insertion hook for modders -->
+        
+        <!-- Wander -->
+        <li Class="JobGiver_WanderAnywhere">
+          <maxDanger>Deadly</maxDanger>
+          <ticksBetweenWandersRange>100~160</ticksBetweenWandersRange>
+        </li>
+		
+      </subNodes>
+    </thinkRoot>
+  </ThinkTreeDef>
+
+  <ThinkTreeDef>
+    <defName>PlagueDoctor</defName>
+    <thinkRoot Class="ThinkNode_Priority">
+      <subNodes>
+        <!-- Despawned -->
+        <li Class="ThinkNode_Subtree">
+          <treeDef>Despawned</treeDef>
+        </li>
+        
+        <!-- Downed -->
+        <li Class="ThinkNode_Subtree">
+          <treeDef>Downed</treeDef>
+        </li>
+				
+        <!-- Lord directives -->
+        <li Class="ThinkNode_Subtree">
+          <treeDef>LordDuty</treeDef>
+        </li>     			        
+
+        <!-- Regular fight -->       
+
+	
+        
+        <!-- Insertion hook for modders -->
+        
+        <!-- Wander -->
+        <li Class="JobGiver_WanderAnywhere">
+          <maxDanger>Some</maxDanger>
+          <ticksBetweenWandersRange>240~360</ticksBetweenWandersRange>
+        </li>
+		
+      </subNodes>
+    </thinkRoot>
+  </ThinkTreeDef>
+  
+  <ThinkTreeDef>
+    <defName>ApostleConstant</defName>
+    <thinkRoot Class="ThinkNode_Priority">
+      <subNodes>
+        <!-- Despawned -->
+        <li Class="ThinkNode_Subtree">
+          <treeDef>Despawned</treeDef>
+        </li>
+        
+        <li Class="ThinkNode_ConditionalCanDoLordJobNow">
+          <subNodes>
+            <!-- Lord directives -->
+            <li Class="ThinkNode_Subtree">
+              <treeDef>LordDutyConstant</treeDef>
+            </li>
+          </subNodes>
+        </li>
+      </subNodes>
+    </thinkRoot>
+  </ThinkTreeDef>
+  <MentalStateDef ParentName="BaseMentalState">
+    <defName>MSSuicide</defName>
+    <stateClass>WN.MentalState_Suicide</stateClass>
+    <label>attempting suicide</label>
+    <category>Malicious</category>
+    <blockInteractionInitiationExcept>
+    </blockInteractionInitiationExcept>
+    <blockInteractionRecipientExcept>
+      <li>Insult</li>
+    </blockInteractionRecipientExcept>
+    <blockRandomInteraction>true</blockRandomInteraction>
+    <prisonersCanDo>true</prisonersCanDo>
+    <colonistsOnly>true</colonistsOnly>
+    <minTicksBeforeRecovery>6000</minTicksBeforeRecovery>
+    <maxTicksBeforeRecovery>10000</maxTicksBeforeRecovery>
+    <recoveryMtbDays>0.033</recoveryMtbDays>
+    <nameColor>(0.5, 0.9, 0.5)</nameColor>
+    <beginLetter>{0} is attempting suicide.\n\n[PAWN_pronoun] will attack himself periodically.</beginLetter>
+    <beginLetterDef>ThreatSmall</beginLetterDef>
+    <moodRecoveryThought>Catharsis</moodRecoveryThought>
+    <recoveryMessage>{0} is no longer attempting suicide.</recoveryMessage>
+    <baseInspectLine>Mental state: Suicide Attempt</baseInspectLine>
+    <recoverFromSleep>true</recoverFromSleep>
+    <inCaravanCanDo>false</inCaravanCanDo>
+  </MentalStateDef>
+  <EffecterDef> 
+    <defName>ApScytheEffect</defName>
+    <maintainTicks>120</maintainTicks>
+    <children>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+        <fleckDef>PlainFlash</fleckDef>
+        <burstCount>1~1</burstCount>
+        <scale>2.0~3.0</scale>
+        <spawnLocType>OnTarget</spawnLocType>
+      </li>      
+      <li>
+        <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+        <positionRadius>0.1</positionRadius>
+        <fleckDef>BloodSplashLong</fleckDef>
+        <burstCount>4~5</burstCount>
+        <scale>0.8~1.7</scale>
+        <color>(240, 10, 0)</color>
+        <spawnLocType>OnTarget</spawnLocType>
+      </li>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+        <scale>2~4</scale>
+        <fleckDef>HoraxianSparks</fleckDef>
+        <burstCount>4~7</burstCount>
+        <angle>0</angle>
+        <positionRadius>0.4</positionRadius>
+        <positionRadiusMin>0</positionRadiusMin>
+        <rotationRate>0~0</rotationRate>
+        <speed>0</speed>
+        <spawnLocType>OnTarget</spawnLocType>
+      </li>  
+    </children>
+  </EffecterDef> 
+
+  <EffecterDef> 
+    <defName>ApSpearEffect</defName>
+    <maintainTicks>120</maintainTicks>
+    <children>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+        <fleckDef>PlainFlash</fleckDef>
+        <burstCount>1~1</burstCount>
+        <scale>1.0~2.0</scale>
+        <spawnLocType>OnTarget</spawnLocType>
+      </li>      
+      <li>
+        <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+        <positionRadius>0.1</positionRadius>
+        <fleckDef>BloodSplashLong</fleckDef>
+        <burstCount>2~3</burstCount>
+        <scale>1.5~2.7</scale>
+        <color>(240, 10, 0)</color>
+        <spawnLocType>OnTarget</spawnLocType>
+      </li>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+        <scale>3~6</scale>
+        <fleckDef>HoraxianSparks</fleckDef>
+        <burstCount>4~7</burstCount>
+        <angle>0</angle>
+        <positionRadius>0.4</positionRadius>
+        <positionRadiusMin>0</positionRadiusMin>
+        <rotationRate>0~0</rotationRate>
+        <speed>0</speed>
+        <spawnLocType>OnTarget</spawnLocType>
+      </li>  
+    </children>
+  </EffecterDef> 
+  
+  <EffecterDef> 
+    <defName>ApWarnEffect</defName>
+    <maintainTicks>180</maintainTicks>
+    <children>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+        <fleckDef>PlainFlash</fleckDef>
+        <burstCount>1~1</burstCount>
+        <scale>8.0~8.0</scale>
+        <spawnLocType>OnSource</spawnLocType>
+      </li>      
+      <li>
+        <subEffecterClass>SubEffecter_SprayerContinuous</subEffecterClass>
+        <positionRadius>1</positionRadius>
+        <moteDef>Mote_SparkSimple</moteDef>
+        <rotation>-150~-150</rotation>
+        <burstCount>1~4</burstCount>
+        <scale>0.25</scale>
+        <spawnLocType>OnSource</spawnLocType>
+      </li>
+    </children>
+  </EffecterDef>  
+
+  <EffecterDef> 
+    <defName>ApDashEffect</defName>
+    <maintainTicks>60</maintainTicks>
+    <children>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+        <scale>3~6</scale>
+        <fleckDef>HoraxianSparks</fleckDef>
+        <burstCount>1~3</burstCount>
+        <angle>0</angle>
+        <positionRadius>0.4</positionRadius>
+        <positionRadiusMin>0</positionRadiusMin>
+        <rotationRate>0~0</rotationRate>
+        <speed>0</speed>
+      </li>  
+      <li>
+        <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+        <positionRadius>1</positionRadius>
+        <moteDef>Mote_SparkSimple</moteDef>
+        <rotation>-150~-150</rotation>
+        <burstCount>1~4</burstCount>
+        <scale>1.25</scale>
+        <spawnLocType>OnSource</spawnLocType>
+      </li>
+    </children>
+  </EffecterDef>  
+
+  <DamageDef ParentName="CutBase">
+    <defName>ApScytheCut</defName>
+    <label>Scythe Cut</label>
+    <deathMessage>{0} has been cut to death by an apostle.</deathMessage>
+    <harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+    <impactSoundType>Slice</impactSoundType>
+    <armorCategory>Sharp</armorCategory>
+    <overkillPctToDestroyPart>1</overkillPctToDestroyPart>
+    <cutExtraTargetsCurve>
+      <points>
+        <li>0, 0</li>
+        <li>0.6, 1</li>
+        <li>0.9, 2</li>
+        <li>1, 3</li>
+      </points>
+    </cutExtraTargetsCurve>
+    <cutCleaveBonus>1.4</cutCleaveBonus>
+  </DamageDef>
+  <DamageDef ParentName="CutBase">
+    <defName>ApSpearCut</defName>
+    <label>Spear Cut</label>
+    <deathMessage>{0} has been cut to death by an apostle.</deathMessage>
+    <harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+    <impactSoundType>Slice</impactSoundType>
+    <armorCategory>Sharp</armorCategory>
+    <overkillPctToDestroyPart>1</overkillPctToDestroyPart>
+    <cutExtraTargetsCurve>
+      <points>
+        <li>0, 0</li>
+        <li>0.6, 1</li>
+        <li>0.9, 2</li>
+        <li>1, 3</li>
+      </points>
+    </cutExtraTargetsCurve>
+    <cutCleaveBonus>1.4</cutCleaveBonus>
+  </DamageDef>
+  <DamageDef ParentName="BluntBase">
+    <defName>ApStaffDamage</defName>
+    <label>Staff Hit</label>
+    <deathMessage>{0} has been cursed to death.</deathMessage>
+    <overkillPctToDestroyPart>1</overkillPctToDestroyPart>
+  </DamageDef>
+  <ThingDef ParentName="EtherealThingBase">
+		<defName>ApFlyer</defName>
+		<label>dashing</label>
+		<thingClass>WN.ApDash</thingClass>
+		<useHitPoints>false</useHitPoints>
+		<drawOffscreen>true</drawOffscreen>
+		<tickerType>Normal</tickerType>
+		<altitudeLayer>Skyfaller</altitudeLayer>
+		<drawerType>RealtimeOnly</drawerType>
+		<pawnFlyer>
+		  <flightDurationMin>0.01</flightDurationMin>
+		  <flightSpeed>120</flightSpeed>		
+		  <workerClass>PawnFlyerWorker</workerClass>
+		  <heightFactor>0</heightFactor>
+		  <progressCurve>
+			<points>
+			  <li>(0, 0)</li>
+			  <li>(0.5, 0.5)</li> 
+			  <li>(1, 1)</li>
+			</points>
+		  </progressCurve>
+		</pawnFlyer>
+  </ThingDef>
+  <FleckDef ParentName="FleckBase">
+    <defName>Fleck_ApSlash</defName>
+    <graphicData>
+      <texPath>Effects/ApSlashEffect</texPath>
+      <shaderType>MoteGlow</shaderType>
+      <drawSize>1.0</drawSize>
+    </graphicData>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <drawOffscreen>true</drawOffscreen>
+      <fadeInTime>0.03</fadeInTime>
+      <solidTime>0.12</solidTime>
+      <fadeOutTime>0.25</fadeOutTime>
+      <growthRate>-0.5</growthRate>
+    <rotateTowardsMoveDirection>true</rotateTowardsMoveDirection>
+  </FleckDef>
+  <FleckDef ParentName="FleckBase">
+    <defName>Fleck_PDLEffect</defName>
+    <graphicData>
+      <texPath>Effects/PDLEffect</texPath>
+      <drawSize>1.0</drawSize>
+    </graphicData>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <drawOffscreen>true</drawOffscreen>
+      <fadeInTime>0.01</fadeInTime>
+      <solidTime>0.4</solidTime>
+      <fadeOutTime>0.04</fadeOutTime>
+      <growthRate>0.0</growthRate>
+  </FleckDef>
+
+  <IncidentDef ParentName="AnomalyIncidentBase">
+    <defName>PlagueDoctorArrival</defName>
+    <label>Plague Doctor</label>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+    <workerClass>WN.IncidentWorker_PlagueDoctorArrival</workerClass>
+    <category>Special</category>
+    <letterLabel>A Visitor?</letterLabel>
+    <letterText>Indeed.\n\nA humaniod winged entity dressed like medieval plague doctor approaches your colony.\n\nIt seems peaceful.</letterText>
+    <letterDef>PositiveEvent</letterDef>
+    <baseChance>5</baseChance>
+    <earliestDay>11</earliestDay>
+    <minAnomalyThreatLevel>1</minAnomalyThreatLevel>
+    <minRefireDays>300</minRefireDays>
+  </IncidentDef>
+
+</Defs>
