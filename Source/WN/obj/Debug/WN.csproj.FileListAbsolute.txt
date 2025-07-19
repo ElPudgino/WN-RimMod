@@ -1,4 +1,0 @@
-D:\piratki\RimWorld\Mods\Aboba\Source\WN\obj\Debug\WN.csproj.AssemblyReference.cache
-D:\piratki\RimWorld\Mods\Aboba\Source\WN\obj\Debug\WN.csproj.CoreCompileInputs.cache
-D:\piratki\RimWorld\Mods\Aboba\Assemblies\WN.dll
-D:\piratki\RimWorld\Mods\Aboba\Source\WN\obj\Debug\WN.dll
