@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  	<ResearchProjectDef>
+		<defName>ParadiseLostEGO</defName>
+		<label>WhiteNight E.G.O.</label>
+		<description>Extraction of powerful E.G.O. gear which makes the wielder almost invincible \nbut disables natural regeneration</description>
+		<tab>Anomaly</tab>
+		<knowledgeCost>66</knowledgeCost>
+		<knowledgeCategory>Advanced</knowledgeCategory>
+		<researchViewX>0</researchViewX>
+		<researchViewY>2.5</researchViewY>
+		<generalRules>
+			<rulesStrings>
+				<li>subject->paradise lost EGO</li>				
+			</rulesStrings>
+		</generalRules>
+	</ResearchProjectDef>
+</Defs>

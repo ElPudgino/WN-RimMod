@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <IncidentDef ParentName="AnomalyIncidentBase">
+    <defName>PlagueDoctorArrival</defName>
+    <label>Plague Doctor</label>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+    <workerClass>WN.IncidentWorker_PlagueDoctorArrival</workerClass>
+    <category>ThreatSmall</category>
+    <letterLabel>A Visitor?</letterLabel>
+    <letterText>Indeed.\n\nA humaniod winged entity dressed like medieval plague doctor approaches your colony.\n\nIt seems peaceful.</letterText>
+    <letterDef>PositiveEvent</letterDef>
+    <baseChance>5</baseChance>
+    <earliestDay>11</earliestDay>
+    <minAnomalyThreatLevel>1</minAnomalyThreatLevel>
+    <minRefireDays>300</minRefireDays>
+  </IncidentDef>
+
+  <IncidentDef ParentName="AnomalyIncidentBase">
+    <defName>Advent_WN</defName>
+    <label>WhiteNight advent</label>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+    <workerClass>WN.IncidentWorker_WN_Advent</workerClass>
+    <category>Special</category>
+    <letterLabel>Advent</letterLabel>
+    <letterText>“The time has come. Soon, the bell shall ring. A new world will come. Rise, my servants. Rise and serve me. I am death and life. Darkness and light.”</letterText>
+    <letterDef>Advent_Letter</letterDef>
+    <baseChance>0</baseChance>
+    <earliestDay>666</earliestDay>
+    <minAnomalyThreatLevel>0</minAnomalyThreatLevel>
+    <minRefireDays>666</minRefireDays>
+  </IncidentDef>
+  
+  <IncidentDef ParentName="AnomalyIncidentBase">
+    <defName>WN_Escape</defName>
+    <label>WhiteNight escape</label>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+    <workerClass>WN.IncidentWorker_WN_Escape</workerClass>
+    <category>Special</category>
+    <letterLabel>Advent</letterLabel>
+    <letterText>“Rise, my servants. Rise and serve me”</letterText>
+    <letterDef>ThreatBig</letterDef>
+    <baseChance>0</baseChance>
+    <earliestDay>666</earliestDay>
+    <minAnomalyThreatLevel>0</minAnomalyThreatLevel>
+    <minRefireDays>666</minRefireDays>
+  </IncidentDef>
+</Defs>

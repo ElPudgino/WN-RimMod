@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <ThingDef ParentName="EtherealThingBase">
+        <defName>WN_Ring</defName>
+        <label>wn ring</label>
+        <thingClass>WN.Ring</thingClass>
+        <tickerType>Normal</tickerType>
+        <drawerType>RealtimeOnly</drawerType>
+        <drawOffscreen>true</drawOffscreen>
+        <seeThroughFog>true</seeThroughFog>
+        <alwaysFlee>false</alwaysFlee>
+    </ThingDef>   
+</Defs>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <AchievementsExpanded.AchievementDef MayRequireAnyOf="vanillaexpanded.achievements">
+	<defName>WhiteNightSuppression</defName>
+	<label>Paradise Lost</label>
+	<description>Suppress WhiteNight</description>
+		
+	<tracker Class="AchievementsExpanded.KillTracker">
+	  <raceDef>WhiteNight</raceDef>
+          <count>1</count>
+	</tracker>
+	
+	<texPath>Icons/WNsuppression</texPath>
+	<points>666</points>
+</AchievementsExpanded.AchievementDef>
+</Defs>
